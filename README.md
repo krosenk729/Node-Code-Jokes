@@ -9,6 +9,6 @@ Code snafus aren't always so funny but with some Node Code Jokes, they can be pu
 + postgresql
 
 ### Do You Node a Joke? 
-Add it 
+Add it ASAP: https://node-code-jokes.herokuapp.com
 
 ![jokes](READMEjokes.gif)
