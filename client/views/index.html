@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="nodeCodeJokes">
+<head>
+	<title>Node Jokes for Node Coders</title>
+	<meta charset="utf-8">
+	<meta name="description" content="See some node code jokes returned from a postgres database">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../stylesheets/reset.css">
+	<link rel="stylesheet" href="../stylesheets/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.6/angular.min.js"></script>
+    <script src="../javascripts/app.js"></script>
+</head>
+<body ng-controller="mainController">
+	<header>
+		<div class="welcome" id="#welcome">
+		<h1>Oh Node You Didn't</h1>
+		<p class="instructions">Code snafus aren't always so funny but with some Node Code Jokes, they can be punny!</p>
+		</div>
+		<div class="add-joke-form">
+			<h3>Node a joke? Add it here</h3>
+			<form action="#">
+				<div class="form-group">
+					<label for="new-joke-text">Joke Text</label>
+					<input type="text" class="form-control input-lg" id="new-joke-text" ng-model="formData.joke_text" placeholder="404 Error">
+				</div>
+				<div class="form-group">
+					<label for="new-joke-punchline">Joke Punchline</label>
+					<input type="text" class="form-control input-lg" id="new-joke-punchline" ng-model="formData.joke_punchline" placeholder="Humor Not Found">
+				</div>
+				<div class="form-submit center">
+					<button type="submit" class="btn" ng-click="addJoke()">Add Joke</button>
+				</div>
+			</form>
+
+		</div>
+	</header>
+	<div class="joke-card-container">
+		<div ng-repeat="j in jokeData" class="joke-card center">
+			<p id="joke-{{j.id}}">{{ j.joke_text }}</p>
+			<br>
+			<p>{{ j.joke_punchline }}</p>
+			<br>
+			<!-- <form action="/#welcome" class="rater">
+				<div class="star-rating-wrapper">
+				    <input name="ratings" id="preco_1" value="1" class="radio radio-1" type="radio">
+				    <label for="preco_1" class="star-item star-item-1" ng-click="changeRating(j.id, 1)">1</label>
+				    <input name="ratings" id="preco_2" value="2" class="radio radio-2" type="radio">
+				    <label for="preco_2" class="star-item star-item-2" ng-click="changeRating(j.id, 1)">2</label>
+				    <input name="ratings" id="preco_3" value="3" class="radio radio-3" type="radio">
+				    <label for="preco_3" class="star-item star-item-3" ng-click="changeRating(j.id, 1)">3</label>
+				    <input name="ratings" id="preco_4" value="4" class="radio radio-4" type="radio">
+				    <label for="preco_4" class="star-item star-item-4" ng-click="changeRating(j.id, 1)">4</label>
+				    <input name="ratings" id="preco_5" value="5" class="radio radio-5" type="radio">
+				    <label for="preco_5" class="star-item star-item-5" ng-click="changeRating(j.id, 1)">5</label>
+				</div>
+			</form> -->
+			<div class="sorter">Move Me</div>
+			<button class="deleter" ng-click="removeJoke(j.id)" aria-label="Delete">&#x2716;</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.joke-card-container').sortable({
+				handle: '.sorter',
+				placeholder: 'joke-card-placeholder',
+				cursorAt: { top: 50, right: 0 },
+				revert: 20,
+				dropOnEmpty: false
+			});
+			//  $('input[name="ratings"]:checked').val()
+			$('.sorter').disableSelection();
+		});
+	</script>
+</body>
+</html>
