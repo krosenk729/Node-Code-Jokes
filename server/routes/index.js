@@ -48,7 +48,7 @@ router.get('/nodecode', function(request, response, next){
 		isConnected = true;
 	}
 
-	client.query('SELECT * FROM jokes ORDER BY rating DESC, id ASC LIMIT 30',
+	client.query('SELECT * FROM jokes ORDER BY id DESC LIMIT 30',
 		function(err, res){
 			// client.end();
 			return response.json( res.rows );

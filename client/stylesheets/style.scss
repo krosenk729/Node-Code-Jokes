@@ -159,12 +159,13 @@ header{
 
 	.joke-card{
 		position: relative;
-		padding: 24px 24px 12px 24px;
+		padding: 24px;
 		margin: .5em;
 		background: $white;
 		border: 6px solid lighten($not-black, 40%);
 		flex-basis: 30%;
 		flex-grow: 0;
+		align-self: center;
 		text-transform: uppercase;
 		@include transition(.25s, linear);
 		&:hover{
@@ -179,29 +180,32 @@ header{
 		margin: 0 auto;
 	}
 
-	button.deleter{
+	%cardFloatButton{
 		border: 6px solid $light-pink;
 		background: transparent;
 		border-radius: 100%;
 		position: absolute;
 		z-index: 1;
-		top: -5px;
-		right: -5px;
 		height: 40px;
 		width: 40px;
-	}
-	.sorter{
-		border: 0;
-		background: transparent;
-		padding: 1.2em .5em .5em .5em;
-		@include transition(.2s, linear);
-		&:hover{
-			transform: scale(1.1);
+
+		img{
+			width: 100%;
+			height: auto;
 		}
-		&:before{
-			content: '';
-			display: block;
-			border-top: 6px solid $light-pink;
+	}
+	button.deleter{
+		@extend %cardFloatButton;
+		top: -5px;
+		right: -5px;
+	}
+	div.sorter{
+		@extend %cardFloatButton;
+		left: -5px;
+		bottom: -5px;
+
+		&:hover, &:active{
+			border-color: $pink-pink; 
 		}
 	}
 

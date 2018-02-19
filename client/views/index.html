@@ -21,7 +21,7 @@
 		</div>
 		<div class="add-joke-form">
 			<h3>Node a joke? Add it here</h3>
-			<form action="#">
+			<form ng-submit="addJoke()">
 				<div class="form-group">
 					<label for="new-joke-text">Joke Text</label>
 					<input type="text" class="form-control input-lg" id="new-joke-text" ng-model="formData.joke_text" placeholder="404 Error">
@@ -31,7 +31,7 @@
 					<input type="text" class="form-control input-lg" id="new-joke-punchline" ng-model="formData.joke_punchline" placeholder="Humor Not Found">
 				</div>
 				<div class="form-submit center">
-					<button type="submit" class="btn" ng-click="addJoke()">Add Joke</button>
+					<button type="submit" class="btn">Add Joke</button>
 				</div>
 			</form>
 
@@ -42,23 +42,8 @@
 			<p id="joke-{{j.id}}">{{ j.joke_text }}</p>
 			<br>
 			<p>{{ j.joke_punchline }}</p>
-			<br>
-			<!-- <form action="/#welcome" class="rater">
-				<div class="star-rating-wrapper">
-				    <input name="ratings" id="preco_1" value="1" class="radio radio-1" type="radio">
-				    <label for="preco_1" class="star-item star-item-1" ng-click="changeRating(j.id, 1)">1</label>
-				    <input name="ratings" id="preco_2" value="2" class="radio radio-2" type="radio">
-				    <label for="preco_2" class="star-item star-item-2" ng-click="changeRating(j.id, 1)">2</label>
-				    <input name="ratings" id="preco_3" value="3" class="radio radio-3" type="radio">
-				    <label for="preco_3" class="star-item star-item-3" ng-click="changeRating(j.id, 1)">3</label>
-				    <input name="ratings" id="preco_4" value="4" class="radio radio-4" type="radio">
-				    <label for="preco_4" class="star-item star-item-4" ng-click="changeRating(j.id, 1)">4</label>
-				    <input name="ratings" id="preco_5" value="5" class="radio radio-5" type="radio">
-				    <label for="preco_5" class="star-item star-item-5" ng-click="changeRating(j.id, 1)">5</label>
-				</div>
-			</form> -->
-			<div class="sorter">Move Me</div>
-			<button class="deleter" ng-click="removeJoke(j.id)" aria-label="Delete">&#x2716;</button>
+			<div class="sorter"><img ng-src="/images/icon_move_{{j.id % 7}}.svg" alt="move/rearrange button"></div>
+			<button class="deleter" ng-click="removeJoke(j.id)" aria-label="Delete"><img src="/images/icon_delete_0.svg" alt="delete button"></button>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -66,7 +51,7 @@
 			$('.joke-card-container').sortable({
 				handle: '.sorter',
 				placeholder: 'joke-card-placeholder',
-				cursorAt: { top: 50, right: 0 },
+				cursorAt: { top: 0, left: 0 },
 				revert: 20,
 				dropOnEmpty: false
 			});

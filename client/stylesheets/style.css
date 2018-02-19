@@ -143,17 +143,18 @@ header {
   margin: 1em; }
   .joke-card-container .joke-card {
     position: relative;
-    padding: 24px 24px 12px 24px;
+    padding: 24px;
     margin: .5em;
     background: #FFFFFF;
     border: 6px solid #898989;
     flex-basis: 30%;
     flex-grow: 0;
+    align-self: center;
     text-transform: uppercase;
-    transition: 1s linear all;
-    -webkit-transition: 1s linear all;
-    -moz-transition: 1s linear all;
-    -o-transition: 1s linear all; }
+    transition: 0.25s linear all;
+    -webkit-transition: 0.25s linear all;
+    -moz-transition: 0.25s linear all;
+    -o-transition: 0.25s linear all; }
     .joke-card-container .joke-card:hover {
       border-color: #232323; }
   .joke-card-container .joke-card-placeholder {
@@ -161,30 +162,25 @@ header {
     width: 25%;
     height: 250px;
     margin: 0 auto; }
-  .joke-card-container button.deleter {
+  .joke-card-container button.deleter, .joke-card-container div.sorter {
     border: 6px solid #F7E3EB;
     background: transparent;
     border-radius: 100%;
     position: absolute;
     z-index: 1;
-    top: -5px;
-    right: -5px;
     height: 40px;
     width: 40px; }
-  .joke-card-container .sorter {
-    border: 0;
-    background: transparent;
-    padding: 1.2em .5em .5em .5em;
-    transition: 0.2s linear all;
-    -webkit-transition: 0.2s linear all;
-    -moz-transition: 0.2s linear all;
-    -o-transition: 0.2s linear all; }
-    .joke-card-container .sorter:hover {
-      transform: scale(1.1); }
-    .joke-card-container .sorter:before {
-      content: '';
-      display: block;
-      border-top: 6px solid #F7E3EB; }
+    .joke-card-container button.deleter img, .joke-card-container div.sorter img {
+      width: 100%;
+      height: auto; }
+  .joke-card-container button.deleter {
+    top: -5px;
+    right: -5px; }
+  .joke-card-container div.sorter {
+    left: -5px;
+    bottom: -5px; }
+    .joke-card-container div.sorter:hover, .joke-card-container div.sorter:active {
+      border-color: #E80073; }
   @media screen and (max-width: 800px) {
     .joke-card-container .joke-card {
       flex-basis: 45%; }
