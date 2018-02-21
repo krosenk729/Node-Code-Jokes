@@ -107,9 +107,9 @@ br:before {
     order: -1;
     border-color: #232323;
     align-self: stretch; }
-    .joke-card-container .main-card:nth-child(even) {
-      border-radius: 25% 0 0 0; }
     .joke-card-container .main-card:nth-child(odd) {
+      border-radius: 25% 0 0 0; }
+    .joke-card-container .main-card:nth-child(even) {
       border-radius: 0 0 25% 0; }
     .joke-card-container .main-card button.btn {
       padding: .5em 1em;
