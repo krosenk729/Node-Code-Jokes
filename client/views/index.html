@@ -8,18 +8,20 @@
 	<link rel="stylesheet" href="../stylesheets/reset.css">
 	<link rel="stylesheet" href="../stylesheets/style.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://code.angularjs.org/1.5.6/angular.min.js"></script>
-    <script src="../javascripts/app.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.6/angular.min.js"></script>
+	<script src="../javascripts/app.js"></script>
 </head>
 <body ng-controller="mainController">
-	<header>
-		<div class="welcome" id="#welcome">
-		<h1>Oh Node You Didn't</h1>
-		<p class="instructions">Code snafus aren't always so funny but with some Node Code Jokes, they can be punny!</p>
+	<div class="joke-card-container">
+		<div class="main-card welcome">
+			<div class="welcome" id="#welcome">
+				<h1>Oh Node You Didn't</h1>
+				<p class="instructions">Code snafus aren't always so funny but with some Node Code Jokes, they can be punny!</p>
+			</div>
 		</div>
-		<div class="add-joke-form">
+		<div class="main-card add-joke-form">
 			<h3>Node a joke? Add it here</h3>
 			<form ng-submit="addJoke()">
 				<div class="form-group">
@@ -34,14 +36,12 @@
 					<button type="submit" class="btn">Add Joke</button>
 				</div>
 			</form>
-
+			
 		</div>
-	</header>
-	<div class="joke-card-container">
 		<div ng-repeat="j in jokeData" class="joke-card center">
 			<p id="joke-{{j.id}}">{{ j.joke_text }}</p>
 			<br>
-			<p>{{ j.joke_punchline }}</p>
+			<p class="punchline">{{ j.joke_punchline }}</p>
 			<div class="sorter"><img ng-src="/images/icon_move_{{j.id % 7}}.svg" alt="move/rearrange button"></div>
 			<button class="deleter" ng-click="removeJoke(j.id)" aria-label="Delete"><img src="/images/icon_delete_0.svg" alt="delete button"></button>
 		</div>
@@ -55,7 +55,6 @@
 				revert: 20,
 				dropOnEmpty: false
 			});
-			//  $('input[name="ratings"]:checked').val()
 			$('.sorter').disableSelection();
 		});
 	</script>

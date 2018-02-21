@@ -70,69 +70,6 @@ br:before {
 .center {
   text-align: center; }
 
-/* Header Area & Form */
-header {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: space-around;
-  background: #FFFFFF;
-  border-bottom: 6px solid #232323; }
-  header > div {
-    padding: 1em; }
-  header .welcome {
-    max-width: 518px; }
-  header .add-joke-form {
-    flex-basis: 30%;
-    flex-grow: 1;
-    min-width: 300px; }
-  header .form-group {
-    position: relative;
-    padding: .2em;
-    width: 100%; }
-  header label {
-    display: block;
-    position: absolute;
-    transform: scale(0.8);
-    transform-origin: left top;
-    top: -1em;
-    left: 0;
-    right: 0;
-    padding: .5em 0; }
-  header input {
-    box-shadow: none !important;
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    outline: none !important;
-    width: 100%;
-    border: 0;
-    box-shadow: 0;
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid #232323; }
-    header input:focus {
-      border-bottom-color: #E80073; }
-    header input:placeholder, header input:-webkit-input-placeholder, header input:-moz-placeholder, header input:-ms-input-placeholder {
-      color: #E80073; }
-  header button {
-    padding: .5em 1em;
-    background: #232323;
-    border: 2px solid #232323;
-    color: #FFFFFF;
-    font-weight: bold;
-    font-family: 'Heebo', Helvetica, Arial, sans-serif;
-    transition: 0.5s ease-out all;
-    -webkit-transition: 0.5s ease-out all;
-    -moz-transition: 0.5s ease-out all;
-    -o-transition: 0.5s ease-out all; }
-    header button:hover {
-      color: #E80073;
-      background: #FFFFFF; }
-  @media screen and (max-width: 560px) {
-    header header {
-      flex-wrap: wrap; } }
-
 /* Joke Cards */
 .joke-card-container {
   display: -webkit-box;
@@ -141,22 +78,81 @@ header {
   display: flex;
   flex-wrap: wrap;
   margin: 1em; }
-  .joke-card-container .joke-card {
+  .joke-card-container .joke-card, .joke-card-container .main-card {
     position: relative;
     padding: 24px;
     margin: .5em;
     background: #FFFFFF;
     border: 6px solid #898989;
     flex-basis: 30%;
-    flex-grow: 0;
-    align-self: center;
-    text-transform: uppercase;
+    flex-grow: 0; }
+  .joke-card-container .joke-card {
     transition: 0.25s linear all;
     -webkit-transition: 0.25s linear all;
     -moz-transition: 0.25s linear all;
-    -o-transition: 0.25s linear all; }
+    -o-transition: 0.25s linear all;
+    text-transform: uppercase;
+    align-self: center; }
     .joke-card-container .joke-card:hover {
       border-color: #232323; }
+    .joke-card-container .joke-card .punchline {
+      transition: 0.25s ease-out all;
+      -webkit-transition: 0.25s ease-out all;
+      -moz-transition: 0.25s ease-out all;
+      -o-transition: 0.25s ease-out all; }
+      .joke-card-container .joke-card .punchline:hover {
+        color: #E80073;
+        font-weight: bold; }
+  .joke-card-container .main-card {
+    order: -1;
+    border-color: #232323;
+    align-self: stretch; }
+    .joke-card-container .main-card:nth-child(even) {
+      border-radius: 25% 0 0 0; }
+    .joke-card-container .main-card:nth-child(odd) {
+      border-radius: 0 0 25% 0; }
+    .joke-card-container .main-card button.btn {
+      padding: .5em 1em;
+      background: #232323;
+      border: 2px solid #232323;
+      color: #FFFFFF;
+      font-weight: bold;
+      font-family: 'Heebo', Helvetica, Arial, sans-serif;
+      transition: 0.5s ease-out all;
+      -webkit-transition: 0.5s ease-out all;
+      -moz-transition: 0.5s ease-out all;
+      -o-transition: 0.5s ease-out all; }
+      .joke-card-container .main-card button.btn:hover {
+        color: #E80073;
+        background: #FFFFFF; }
+    .joke-card-container .main-card input {
+      box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      outline: none !important;
+      width: 100%;
+      border: 0;
+      box-shadow: 0;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid #232323; }
+      .joke-card-container .main-card input:focus {
+        border-bottom-color: #E80073; }
+      .joke-card-container .main-card input:placeholder, .joke-card-container .main-card input:-webkit-input-placeholder, .joke-card-container .main-card input:-moz-placeholder, .joke-card-container .main-card input:-ms-input-placeholder {
+        color: #E80073; }
+    .joke-card-container .main-card .form-group {
+      position: relative;
+      padding: .2em;
+      width: 100%; }
+    .joke-card-container .main-card label {
+      display: block;
+      position: absolute;
+      transform: scale(0.8);
+      transform-origin: left top;
+      top: -1em;
+      left: 0;
+      right: 0;
+      padding: .5em 0; }
   .joke-card-container .joke-card-placeholder {
     background: rgba(163, 163, 163, 0.5);
     width: 25%;
